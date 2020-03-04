@@ -11,10 +11,10 @@ use super::{ErrorKind, InvalidUri, InvalidUriBytes};
 #[derive(Clone)]
 pub struct PathAndQuery {
     pub(super) data: ByteStr,
-    pub(super) query: u16,
+    pub(super) query: u32,
 }
 
-const NONE: u16 = ::std::u16::MAX;
+const NONE: u32 = ::std::u32::MAX;
 
 impl PathAndQuery {
     /// Attempt to convert a `PathAndQuery` from `Bytes`.
@@ -57,7 +57,7 @@ impl PathAndQuery {
                 match b {
                     b'?' => {
                         debug_assert_eq!(query, NONE);
-                        query = i as u16;
+                        query = i as u32;
                         break;
                     }
                     b'#' => {

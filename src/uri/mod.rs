@@ -27,7 +27,7 @@ use byte_str::ByteStr;
 
 use bytes::Bytes;
 
-use std::{fmt, u8, u16};
+use std::{fmt, u8, u16, u32};
 // Deprecated in 1.26, needed until our minimum version is >=1.23.
 #[allow(unused, deprecated)]
 use std::ascii::AsciiExt;
@@ -148,7 +148,7 @@ enum ErrorKind {
 }
 
 // u16::MAX is reserved for None
-const MAX_LEN: usize = (u16::MAX - 1) as usize;
+const MAX_LEN: usize = (u32::MAX - 1) as usize;
 
 const URI_CHARS: [u8; 256] = [
     //  0      1      2      3      4      5      6      7      8      9
