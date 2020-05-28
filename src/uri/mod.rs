@@ -30,7 +30,7 @@ use bytes::Bytes;
 use std::error::Error;
 use std::hash::{Hash, Hasher};
 use std::str::{self, FromStr};
-use std::{fmt, u16, u8};
+use std::{fmt, u16, u8, u32};
 
 use self::scheme::Scheme2;
 
@@ -141,7 +141,7 @@ enum ErrorKind {
 }
 
 // u16::MAX is reserved for None
-const MAX_LEN: usize = (u16::MAX - 1) as usize;
+const MAX_LEN: usize = (u32::MAX - 1) as usize;
 
 const URI_CHARS: [u8; 256] = [
     //  0      1      2      3      4      5      6      7      8      9

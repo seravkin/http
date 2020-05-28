@@ -449,7 +449,7 @@ fn test_max_uri_len() {
     let uri = String::from_utf8(uri).unwrap();
     let res: Result<Uri, InvalidUri> = uri.parse();
 
-    assert_eq!(res.unwrap_err().0, ErrorKind::TooLong);
+    assert!(res.is_ok());
 }
 
 #[test]
